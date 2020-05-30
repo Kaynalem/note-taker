@@ -18,20 +18,20 @@ app.get('/', (req, res) => {
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
 });
-
+//displays saved notes JSON array
 app.get('/api/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/db/db.json'));
 });
+
 // If no matching route is found default to home
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
 /*API routes*/
-
-app.get('/api/notes/:id', (req, res) => {
+app.get('/api/notes', (req, res) => {
     const savedNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
-    res.json(savedNotes[Number(req.params.id)]);
+    res.json(savedNotes);
 });
 
 app.post('/api/notes', (req, res) => {
