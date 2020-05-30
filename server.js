@@ -3,7 +3,6 @@ const fs = require('fs');
 const express = require('express');
 const PORT = process.env.PORT || 3001;
 const app = express();
-const mainDir = path.join(__dirname, '/public');
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
