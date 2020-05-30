@@ -13,12 +13,11 @@ app.use(express.static('public'));
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
 });
-//displays saved notes JSON array
+//to see saved notes JSON array in html
 app.get('/api/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/db/db.json'));
 });
-
-// If no matching route is found default to home
+// If anything else is entered (no matching route) default to home page
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
 });
